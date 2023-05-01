@@ -2,7 +2,7 @@
 nnoremap <leader>U :MundoToggle<cr>
 
 " --- CamelCaseMotion --- "
-omap v <Plug>CamelCaseMotion_ie
+omap v <Plug>CamelCaseMotion_iw
 
 " --- vim-qf ---
 let g:qf_auto_open_quickfix = 0
@@ -28,11 +28,6 @@ nnoremap <leader>u <Plug>(GitGutterUndoHunk)
 xnoremap <leader>s :<,>GitGutterStageHunk<cr>
 xnoremap <leader>u :<,>GitGutterUndoHunk<cr>
 nnoremap <leader>gc :GitGutterQuickFix<cr>
-onoremap ih <Plug>(GitGutterTextObjectInnerPending)
-onoremap ah <Plug>(GitGutterTextObjectOuterPending)
-xnoremap ih <Plug>(GitGutterTextObjectInnerVisual)
-xnoremap ah <Plug>(GitGutterTextObjectOuterVisual)
-nnoremap <F11> :GitGutterBufferToggle<cr>
 nnoremap <leader>gt :GitGutterToggle<cr>
 
 let g:gitgutter_realtime = 0
@@ -56,11 +51,6 @@ let g:gitgutter_eager = 0
 " --- fugitive --- "
 nnoremap <leader>gs :vert G<cr>
 nnoremap <leader>gS :G<cr>
-nnoremap <leader>gP :Git push<cr>
-nnoremap <leader>gp :Git pull<cr>
-nnoremap <leader>gd :Gdiffsplit<cr>
-nnoremap <leader>gD :Gcd<cr>
-nnoremap <leader>gb :Gblame<cr>
 nnoremap g<space> :Git<space>
 
 " --- fzf --- "
@@ -77,8 +67,11 @@ nnoremap gh :GotoHeaderSwitch<CR>
 
 " --- vimwiki --- "
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown'}]
-" Etend la syntaxe de vimwiki à tous les fichiers markdown
-let g:vimwiki_ext2syntax = {'.Rmd': 'markdown', '.rmd': 'markdown','.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" Extend vimwiki syntax to all markdown files
+let g:vimwiki_ext2syntax = {
+      \ '.Rmd': 'markdown', '.rmd': 'markdown',
+      \ '.md': 'markdown', '.markdown': 'markdown',
+      \ '.mdown': 'markdown'}
 nnoremap <Leader>wn <Plug>VimwikiNextLink
 
 " --- pear-tree --- "

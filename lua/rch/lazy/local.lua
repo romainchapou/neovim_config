@@ -2,13 +2,19 @@
 
 -- Utility function that will pick the local version of the plugin if available
 -- and fallback on the github version
-local function add_plugin_path(name, node)
+local function add_plugin_path(name, node, fallback_github)
+  if fallback_github == nil then fallback_github = true end
+
   local expected_local_path = os.getenv("HOME") .. "/Documents/projects/" .. name
 
   if require("rch.utils").dir_exists(expected_local_path) then
     node.dir = expected_local_path
-  else
+  elseif fallback_github then
     node[1] = "romainchapou/" .. name
+  else
+    -- for custom plugins with no public github repo, if not present
+    -- locally then simply don't load
+    return nil
   end
 
   return node
@@ -34,5 +40,5 @@ return {
     }
   }),
 
-  { dir = "~/Documents/projects/gtest_confiture.nvim/", ft = "cpp" },
+  add_plugin_path("gtest_confiture.nvim", { ft = "cpp" }, false),
 }
