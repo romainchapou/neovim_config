@@ -38,8 +38,8 @@ nnoremap <leader>gt :GitGutterToggle<cr>
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
-" " Note: signify c'est sympa, mais pas de commande pour stage un hunk, donc
-"  je reste sur git gutter pour l'instant
+" Note: this is pretty nice, but no command to stage a hunk, so stay on git
+" gutter for now.
 " === signify ===
 " let g:signify_sign_add               = '+'
 " let g:signify_sign_delete            = '-'
@@ -92,12 +92,6 @@ nnoremap <leader>P :PearTreeDisable<cr>
 " --- EasyAlign --- "
 nmap gA <Plug>(EasyAlign)
 xmap gA <Plug>(EasyAlign)
-
-" --- Pandoc --- "
-" Compilation du fichier markdown courant avec pandoc. Voir ~/.scripts/custom/pandoc_to_pdf
-nnoremap <Leader>x :w\|!pandoc_to_pdf % &<cr><cr>
-nnoremap <Leader>X :w\|!pandoc_to_pdf -t % &<cr><cr>
-nnoremap <Leader>o :!open_associated_pdf % &<cr><cr>
 
 " --- Bclose --- "
 let g:bclose_no_plugin_maps = 1

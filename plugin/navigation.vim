@@ -42,6 +42,8 @@ inoremap <c-l> <right>
 " Easier access to scrolling
 nnoremap K <c-e>
 nnoremap J <c-y>
+xnoremap K <c-e>
+xnoremap J <c-y>
 
 nmap z<cr> zt
 

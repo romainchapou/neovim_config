@@ -1,11 +1,4 @@
--- TODO refactor
-local function nmap(lhs, rhs, opts)
-  if not opts then
-    vim.keymap.set('n', lhs, rhs, { noremap = true, silent = true})
-  else
-    vim.keymap.set('n', lhs, rhs, opts)
-  end
-end
+local nmap = require("rch.utils").nmap
 
 if not os.getenv("NVIM_NO_LSP") then
   vim.diagnostic.config({ update_in_insert = false, virtual_text = false })
@@ -30,27 +23,18 @@ if not os.getenv("NVIM_NO_LSP") then
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     nmap('gd', vim.lsp.buf.definition, bufopts)
-    nmap('gh', function()
-      vim.api.nvim_command(":ClangdSwitchSourceHeader")
-    end, bufopts)
     nmap('gk', vim.lsp.buf.hover, bufopts)
     nmap('gD', vim.lsp.buf.type_definition, bufopts)
     nmap('gR', vim.lsp.buf.rename, bufopts)
     nmap('ga', vim.lsp.buf.code_action, bufopts)
     nmap('gr', vim.lsp.buf.references, bufopts)
-    nmap('<leader>vf', vim.lsp.buf.formatting, bufopts)
 
-    nmap('_', function()
-      -- TODO check this
-      -- vim.api.nvim_command(":nohl") -- hack for vim cool
-      vim.api.nvim_command(":FzfLua lsp_document_symbols")
+    nmap('gh', function()
+      vim.api.nvim_command(":ClangdSwitchSourceHeader")
     end, bufopts)
 
-    nmap('-', function()
-      -- TODO check this
-      -- vim.api.nvim_command(":nohl") -- hack for vim cool
-      vim.api.nvim_command(":FzfLua lsp_workspace_symbols")
-    end, bufopts)
+    nmap('_', ":FzfLua lsp_document_symbols<cr>", bufopts)
+    nmap('-', ":FzfLua lsp_workspace_symbols<cr>", bufopts)
   end
 
   local lsp_flags = {
@@ -81,15 +65,14 @@ if not os.getenv("NVIM_NO_LSP") then
       },
     },
 
-      on_attach = on_attach,
-      flags = lsp_flags,
+    on_attach = on_attach,
+    flags = lsp_flags,
   }
 
-  require('lspconfig')['clangd'].setup{
+  require('lspconfig').clangd.setup {
       on_attach = on_attach,
       flags = lsp_flags,
   }
 end
 
-nmap("<leader>vt", "<Plug>(toggle-lsp-diag-vtext)")
 nmap("<leader>r", ":LspRestart<cr>")
