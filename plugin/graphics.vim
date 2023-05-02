@@ -99,3 +99,7 @@ augroup MyColors
 augroup END
 
 hi Normal guibg=NONE ctermbg=NONE
+
+" set window title as opened dir stem
+set title
+let &titlestring = getcwd() ==# getenv("HOME") ? "~" : tolower(substitute(getcwd(), ".*/", "", "g"))
