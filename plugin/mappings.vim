@@ -17,8 +17,8 @@ xnoremap ir i]
 xnoremap ar a]
 
 " file explorer mappings
-nnoremap <leader>e :e .<cr>
-nnoremap <leader>E :e %:h<cr>
+nnoremap <silent> <leader>e :e .<cr>
+nnoremap <silent> <leader>E :e %:h<cr>
 autocmd FileType fern nnoremap <buffer> <leader>c <Plug>(fern-action-cd:root)
 
 " Remap to quickly use vimgrep
@@ -71,6 +71,7 @@ noremap <F9> :setlocal nospell<CR>
 
 " Different completion sources from tab depending of the context
 
+" TODO when no match found, this has a weird behaviour
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
   let char_before_cursor = line[col('.')-2]

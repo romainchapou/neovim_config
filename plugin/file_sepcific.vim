@@ -1,3 +1,7 @@
+" TODO See
+" https://stackoverflow.com/questions/11666170/persistent-set-syntax-for-a-given-filetype
+" and in particular, the answer mentionning ftdetect
+
 autocmd BufEnter *.pro,*.pri setlocal syntax=config
 autocmd BufEnter *.pro,*.pri setlocal commentstring=#\ %s
 

@@ -38,6 +38,8 @@ set noshowmode
 
 " Show the number of search matches and index of current match
 set shortmess-=S
+" Don't show the intro message
+set shortmess+=I
 
 " Rendre les espaces en fin de ligne visibles
 " set list listchars=trail:·
@@ -52,6 +54,7 @@ set equalalways
 set termguicolors
 
 " Colorscheme adjustments
+" TODO this doesn't work anymore (seems overriden somewhere)
 autocmd Syntax * syntax match myCommentMarks '[ (]\zs@\(API\|Optim\|Improve\|Refactor\|Incomplete\|Unsure\|Bug\|Hack\|Cleanup\|tmp\|Hardcoded\|Test\)\>:\?' containedin=ALL
 
 " Modify solarized to have a bit less contrast

@@ -35,7 +35,12 @@ return {
 
   "tmsvg/pear-tree",
   { "junegunn/goyo.vim", cmd = "Goyo" },
-  {"karb94/neoscroll.nvim", opts = { easing_function = "sine" }},
+  {
+    "karb94/neoscroll.nvim", opts = {
+      easing_function = "sine",
+      mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'},
+    }
+  },
   {
     "justinmk/vim-sneak",
     init = function()

@@ -53,6 +53,17 @@ dap.adapters.cppdbg = {
 
 -- TODO @Cleanup
 
+local function mysplit(inputstr, sep)
+  if sep == nil then
+    sep = "%s"
+  end
+  local t={}
+  for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+    table.insert(t, str)
+  end
+  return t
+end
+
 dap.configurations.cpp = {
   {
     name = "Launch file",
@@ -75,7 +86,8 @@ dap.configurations.cpp = {
       if exec_args == "" or exec_args == nil then
         return {}
       else
-        return {exec_args}
+        -- TODO @Hack: this is not a proper parsing
+        return mysplit(exec_args)
       end
     end,
     environment = {{name = "TEST_VAR", value = "test value"}},
@@ -95,12 +107,7 @@ dap.configurations.cpp = {
 nmap('<backspace><cr>', function()
   vim.api.nvim_command("silent! wa")
 
-  local found_build_type = require("confiture").get_variable("build_type")
-
-  if found_build_type ~= nil and found_build_type ~= "Debug" then
-    print("build type is " .. found_build_type .. ", not launching debugger")
-    return
-  end
+  require("confiture").set_variable("build_type", "Debug")
 
   local build_success = require("confiture").build_and_return_success()
 

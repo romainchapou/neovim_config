@@ -15,6 +15,7 @@ if term_color == "nord" then
   end })
 else
   table.insert(M, { "lifepillar/vim-solarized8", priority = 1000, config = function()
+    -- TODO move this in graphics.vim to avoid the startup glitch
     vim.cmd([[colorscheme solarized8_flat]])
 
     if term_color ~= "light" then
