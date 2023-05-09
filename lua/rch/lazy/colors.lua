@@ -1,36 +1,27 @@
-local M = {}
+-- Colorschemes and related plugins.
 
--- Load a different colorscheme depending of the term color defined in ~/.term_color.
--- The default is solarized light.
+return {
+  -- solarized
+  {
+    "lifepillar/vim-solarized8", lazy = true, priority = 1000
+  },
 
-local term_color = require("rch.term_color").get_term_color()
-
-if term_color == "nord" then
-  table.insert(M, { "itchyny/lightline.vim", config = function()
-    vim.g.lightline = { colorscheme = "nord" }
-  end })
-  table.insert(M, { "arcticicestudio/nord-vim", priority = 1000, config = function()
-    vim.cmd([[colorscheme nord]])
-    vim.g.background = "dark"
-  end })
-else
-  table.insert(M, { "lifepillar/vim-solarized8", priority = 1000, config = function()
-    -- TODO move this in graphics.vim to avoid the startup glitch
-    vim.cmd([[colorscheme solarized8_flat]])
-
-    if term_color ~= "light" then
-      vim.g.background = "dark"
-    else
-      vim.g.background = "light"
+  -- nord
+  {
+    "itchyny/lightline.vim", lazy = true, config = function()
+      vim.g.lightline = { colorscheme = "nord" }
     end
-  end })
-end
+  },
+  {
+    "arcticicestudio/nord-vim", lazy = true, priority = 1000,
+    dependencies = "itchyny/lightline.vim"
+  },
 
--- "frenzyexists/aquarium-vim", { 'branch': 'vimscript-version' }
--- "ayu-theme/ayu-vim",
--- "wojciechkepka/bogster",
--- "drewtempelmeyer/palenight.vim",
--- "b4skyx/serenade",
--- "cormacrelf/vim-colors-github",
+  -- "frenzyexists/aquarium-vim", { 'branch': 'vimscript-version' }
+  -- "ayu-theme/ayu-vim",
+  -- "wojciechkepka/bogster",
+  -- "drewtempelmeyer/palenight.vim",
+  -- "b4skyx/serenade",
+  -- "cormacrelf/vim-colors-github",
+}
 
-return M

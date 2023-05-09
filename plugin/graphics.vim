@@ -103,6 +103,18 @@ augroup END
 
 hi Normal guibg=NONE ctermbg=NONE
 
+let s:term_color=luaeval('require("rch.term_color").get_term_color()')
+
+" Load a different colorscheme depending of the term color defined in ~/.term_color.
+" The default is solarized light.
+if s:term_color ==# 'nord'
+  let &background = 'dark'
+  colorscheme nord
+else
+  let &background = s:term_color ==# 'dark' ? 'dark' : 'light'
+  colorscheme solarized8_flat
+endif
+
 " set window title as opened dir stem
 set title
-let &titlestring = getcwd() ==# getenv("HOME") ? "~" : tolower(substitute(getcwd(), ".*/", "", "g"))
+let &titlestring = getcwd() ==# getenv("HOME") ? "vi" : tolower(substitute(getcwd(), ".*/", "", "g"))
