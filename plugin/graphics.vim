@@ -38,8 +38,6 @@ set noshowmode
 
 " Show the number of search matches and index of current match
 set shortmess-=S
-" Don't show the intro message
-set shortmess+=I
 
 " Rendre les espaces en fin de ligne visibles
 " set list listchars=trail:·

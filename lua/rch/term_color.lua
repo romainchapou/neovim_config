@@ -3,7 +3,7 @@ local M = {}
 function M.get_term_color()
   local term_color_file = os.getenv("HOME") .. "/.term_color"
 
-  if not vim.fn.filereadable(term_color_file) then
+  if vim.fn.filereadable(term_color_file) == 0 then
     return nil
   end
 
