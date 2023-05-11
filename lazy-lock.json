@@ -36,5 +36,6 @@
   "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
   "vim-textobj-parameter": { "branch": "master", "commit": "201144f19a1a7081033b3cf2b088916dd0bcb98c" },
   "vim-textobj-user": { "branch": "master", "commit": "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
+  "vim-visual-star-search": { "branch": "master", "commit": "7c32edb9e3c85d473d9be4dec721a4c9d5d4d69c" },
   "vimwiki": { "branch": "dev", "commit": "7a48268d24614e74f8187856ade54cf03134e9d9" }
 }

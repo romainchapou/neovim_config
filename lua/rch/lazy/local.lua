@@ -7,7 +7,7 @@ local function add_plugin_path(name, node, fallback_github)
 
   local expected_local_path = os.getenv("HOME") .. "/Documents/projects/" .. name
 
-  if vim.fn.isdirectory(expected_local_path) then
+  if vim.fn.isdirectory(expected_local_path) == 1 then
     node.dir = expected_local_path
   elseif fallback_github then
     node[1] = "romainchapou/" .. name

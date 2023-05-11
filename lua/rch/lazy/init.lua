@@ -30,6 +30,7 @@ return {
     opts = {},
     keys = { "gc", {"gc", mode = "x"} },
   },
+  { "bronson/vim-visual-star-search", keys = {{"*", mode = "x"}}},
 
   -- "modern" style plugins
 
