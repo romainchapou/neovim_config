@@ -94,10 +94,10 @@ dap.configurations.cpp = {
     cwd = '${workspaceFolder}',
     setupCommands = {
       {
-          description = 'enable pretty printing',
-          text = '-enable-pretty-printing',
-          -- ignoreFailures = true
-        },
+        description = 'enable pretty printing',
+        text = '-enable-pretty-printing',
+        -- ignoreFailures = true
+      },
     },
     stopAtEntry = true,
   },
