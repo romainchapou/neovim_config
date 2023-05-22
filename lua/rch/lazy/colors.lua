@@ -17,6 +17,35 @@ return {
     dependencies = "itchyny/lightline.vim"
   },
 
+  -- github
+  -- NOTE: need to run :GithubThemeCompile when changing this
+  {
+    "projekt0n/github-nvim-theme",
+    lazy = true,
+    priority = 1000,
+    config = function()
+      require('github-theme').setup({
+        options = {
+          hide_nc_statusline = false,
+          hide_end_of_buffer = false,
+
+          styles = {
+            keywords = "NONE"
+          },
+        },
+
+        specs = {
+          github_light = {
+            syntax = {
+              string = "green",
+              type = "#d15705",
+            }
+          },
+        }
+      })
+    end,
+  },
+
   -- "frenzyexists/aquarium-vim", { 'branch': 'vimscript-version' }
   -- "ayu-theme/ayu-vim",
   -- "wojciechkepka/bogster",

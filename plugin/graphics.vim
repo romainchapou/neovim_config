@@ -52,8 +52,7 @@ set equalalways
 set termguicolors
 
 " Colorscheme adjustments
-" TODO this doesn't work anymore (seems overriden somewhere)
-autocmd Syntax * syntax match myCommentMarks '[ (]\zs@\(API\|Optim\|Improve\|Refactor\|Incomplete\|Unsure\|Bug\|Hack\|Cleanup\|tmp\|Hardcoded\|Test\)\>:\?' containedin=ALL
+lua require("rch.comment_marks").load()
 
 " Modify solarized to have a bit less contrast
 " TODO make a fork of solarized8 instead
@@ -94,9 +93,15 @@ function! CustomizeSolarized()
   highlight Sneak guibg=#d33682 guifg=#fdf6e3 guisp=NONE gui=NONE cterm=NONE
 endfunction
 
+function! CustomizeGithub()
+  hi myCommentMarks guifg=#6e7781 gui=underline cterm=underline
+  hi Sneak guibg=#d15705 guifg=#ffffff guisp=NONE gui=NONE cterm=NONE
+endfunction
+
 augroup MyColors
   autocmd!
   autocmd ColorScheme solarized* call CustomizeSolarized()
+  autocmd ColorScheme github_* call CustomizeGithub()
 augroup END
 
 hi Normal guibg=NONE ctermbg=NONE
@@ -108,6 +113,12 @@ let s:term_color=luaeval('require("rch.term_color").get_term_color()')
 if s:term_color ==# 'nord'
   let &background = 'dark'
   colorscheme nord
+elseif s:term_color ==# "github_light"
+  let &background = 'light'
+  colorscheme github_light
+elseif s:term_color ==# "github_dark"
+  let &background = 'dark'
+  colorscheme github_dark
 else
   let &background = s:term_color ==# 'dark' ? 'dark' : 'light'
   colorscheme solarized8_flat
