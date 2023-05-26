@@ -5,3 +5,5 @@ nnoremap <buffer> <c-l> <c-w>l
 
 nnoremap <buffer> <c-space> <Plug>(fern-action-mark:toggle)j
 vnoremap <buffer> <c-space> <Plug>(fern-action-mark:toggle)
+
+nnoremap <buffer> <leader>r <Plug>(fern-action-rename)

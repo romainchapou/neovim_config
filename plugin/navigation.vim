@@ -25,6 +25,9 @@ cabbrev ter call NeovimTermOpen()
 
 set mouse=a
 
+nnoremap <C-ScrollWheelDown> <C-O>
+nnoremap <C-ScrollWheelUp> <C-I>
+
 " resise window shortcuts
 noremap <c-s-right> <C-W>>
 noremap <c-s-left>  <C-W><
