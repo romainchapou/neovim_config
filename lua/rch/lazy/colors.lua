@@ -34,12 +34,19 @@ return {
           },
         },
 
+        groups = {
+          github_light = {
+            StatusLine = { bg = "#eff1f5", fg = "black" },
+            StatusLineNC = { bg = "#eff1f5", fg = "grey" },
+          }
+        },
+
         specs = {
           github_light = {
             syntax = {
               string = "green",
               type = "#d15705",
-            }
+            },
           },
         }
       })
