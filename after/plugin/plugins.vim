@@ -93,7 +93,7 @@ nnoremap Q :Bclose<cr>
 " --- confiture ---
 nnoremap <leader>c :silent! wa<cr>:ConfitureDispatch configure<cr>
 nnoremap <leader>b :silent! wa<cr>:Confiture build<cr>
-nnoremap <leader><cr> :silent! wa<cr>:Confiture build_and_run<cr><cr>
+nnoremap <leader><cr> :silent! wa<cr>:Confiture build_and_run<cr>
 
 " --- gtest_confiture ---
 nnoremap <leader>t :GtestConfitureSetTest<cr>
