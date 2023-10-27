@@ -12,7 +12,7 @@ nmap("<backspace>u", dap.up)
 nmap("<backspace>d", dap.down)
 nmap("<backspace>p", dap.pause)
 nmap("<backspace>O", dap.step_out)
-nmap("<c-space>", dap.toggle_breakpoint)
+nmap("<backspace>b", dap.toggle_breakpoint)
 
 nmap("<backspace>C", dap.run_to_cursor)
 nmap("<backspace>e", dap.set_exception_breakpoints)
