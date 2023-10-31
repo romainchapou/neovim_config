@@ -4,12 +4,15 @@ local BOOKMARK_FILE = ".bookmarked_files.txt"
 
 
 local function bookmarkCurrentFile()
+  -- TODO make sure this is a relative path each time
   local cur_file_name = vim.fn.expand("%")
 
-  for line in io.lines(BOOKMARK_FILE) do
-    if line == cur_file_name then
-      print("Already bookmarked " .. cur_file_name)
-      return
+  if vim.fn.filereadable(BOOKMARK_FILE) == 1 then
+    for line in io.lines(BOOKMARK_FILE) do
+      if line == cur_file_name then
+        print("Already bookmarked " .. cur_file_name)
+        return
+      end
     end
   end
 
