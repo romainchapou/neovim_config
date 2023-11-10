@@ -4,8 +4,7 @@ local BOOKMARK_FILE = ".bookmarked_files.txt"
 
 
 local function bookmarkCurrentFile()
-  -- TODO make sure this is a relative path each time
-  local cur_file_name = vim.fn.expand("%")
+  local cur_file_name = vim.fn.expand("%:~:.")
 
   if vim.fn.filereadable(BOOKMARK_FILE) == 1 then
     for line in io.lines(BOOKMARK_FILE) do
@@ -23,6 +22,12 @@ end
 
 
 local function promptBookmarkedFile()
+  -- skip if no bookmark file
+  if vim.fn.filereadable(BOOKMARK_FILE) == 0 then
+    print("No bookmark file")
+    return
+  end
+
   local function switchToSelectedFile(selection)
     if #selection == 0 then return end -- no switch if empty selection
 
