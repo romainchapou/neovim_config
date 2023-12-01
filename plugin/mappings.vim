@@ -56,13 +56,19 @@ nnoremap <leader>q :q<cr>
 " :w!! to save with sudo
 cabbrev w!! w !sudo tee >/dev/null "%"
 
-" Cursed < and > mapping for external keyboard
+" Cursed < and > mappings for external keyboard
 cnoremap µ >
 cnoremap £ <
 inoremap µ >
 inoremap £ <
 noremap µ >
 noremap £ <
+inoremap <M-,> <
+inoremap <M-;> >
+nnoremap <M-,> <
+nnoremap <M-;> >
+onoremap <M-,> <
+onoremap <M-;> >
 
 " mapping to toggle spell
 noremap <F7> :setlocal spell spelllang=en<CR>
