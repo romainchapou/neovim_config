@@ -63,6 +63,14 @@ inoremap µ >
 inoremap £ <
 noremap µ >
 noremap £ <
+inoremap <M-,> <
+inoremap <M-;> >
+nnoremap <M-,> <
+nnoremap <M-;> >
+onoremap <M-,> <
+onoremap <M-;> >
+xnoremap <M-,> <
+xnoremap <M-;> >
 
 " mapping to toggle spell
 noremap <F7> :setlocal spell spelllang=en<CR>
