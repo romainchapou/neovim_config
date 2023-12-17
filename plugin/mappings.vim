@@ -56,7 +56,7 @@ nnoremap <leader>q :q<cr>
 " :w!! to save with sudo
 cabbrev w!! w !sudo tee >/dev/null "%"
 
-" Cursed < and > mapping for external keyboard
+" Cursed < and > mappings for external keyboard
 cnoremap µ >
 cnoremap £ <
 inoremap µ >
