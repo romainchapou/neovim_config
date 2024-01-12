@@ -62,8 +62,6 @@ noremap k gk
 noremap <tab> <c-^>`"
 " remap default <c-i> behaviour as it is also <tab>, which we want to use in a different way
 noremap <C-P> <C-I>
-noremap <leader><tab> :cn<cr>
-noremap <leader><S-tab> :cp<cr>
 noremap <m-s-l> :cn<cr>
 noremap <m-s-h> :cp<cr>
 noremap <leader>n :bn<cr>

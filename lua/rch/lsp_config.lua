@@ -29,9 +29,11 @@ if not os.getenv("NVIM_NO_LSP") then
     nmap('ga', vim.lsp.buf.code_action, bufopts)
     nmap('gr', vim.lsp.buf.references, bufopts)
 
-    nmap('gh', function()
-      vim.api.nvim_command(":ClangdSwitchSourceHeader")
-    end, bufopts)
+    if client.name == "clangd" then
+      nmap('gh', function()
+        vim.api.nvim_command(":ClangdSwitchSourceHeader")
+      end, bufopts)
+    end
 
     nmap('_', ":FzfLua lsp_document_symbols<cr>", bufopts)
     nmap('-', ":FzfLua lsp_workspace_symbols<cr>", bufopts)
@@ -69,10 +71,19 @@ if not os.getenv("NVIM_NO_LSP") then
     flags = lsp_flags,
   }
 
-  require('lspconfig').clangd.setup {
-      on_attach = on_attach,
-      flags = lsp_flags,
-  }
+  local cpp_lsp_choice = os.getenv("NVIM_CCLS") and "ccls" or "clangd"
+
+  if cpp_lsp_choice == "clangd" then
+    require('lspconfig').clangd.setup {
+        on_attach = on_attach,
+        flags = lsp_flags,
+    }
+  elseif cpp_lsp_choice == "ccls" then
+    require('lspconfig').ccls.setup {
+        on_attach = on_attach,
+        flags = lsp_flags,
+    }
+  end
 end
 
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }

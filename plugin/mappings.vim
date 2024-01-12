@@ -111,3 +111,10 @@ endfunction
 
 inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! ToggleTextWidth()
+  let &textwidth = &textwidth ==# 0 ? 120 : 0
+  echomsg 'textwidth now ' . &textwidth
+endfunction
+
+nnoremap <leader>& :call ToggleTextWidth()<cr>
