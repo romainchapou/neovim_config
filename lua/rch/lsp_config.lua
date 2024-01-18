@@ -1,5 +1,21 @@
 local nmap = require("rch.utils").nmap
 
+local function go_to_prev_diagnostic()
+  if vim.o.spell then
+    vim.cmd("normal [s")
+  else
+    vim.diagnostic.goto_prev()
+  end
+end
+
+local function go_to_next_diagnostic()
+  if vim.o.spell then
+    vim.cmd("normal ]s")
+  else
+    vim.diagnostic.goto_next()
+  end
+end
+
 if not os.getenv("NVIM_NO_LSP") then
   vim.diagnostic.config({ update_in_insert = false, virtual_text = false })
   -- require'toggle_lsp_diagnostics'.init({ update_in_insert = false, virtual_text = false })
@@ -7,8 +23,8 @@ if not os.getenv("NVIM_NO_LSP") then
   -- Mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
   nmap('<leader>vd', vim.diagnostic.open_float)
-  nmap('<m-h>', vim.diagnostic.goto_prev)
-  nmap('<m-l>', vim.diagnostic.goto_next)
+  nmap('<m-h>', go_to_prev_diagnostic)
+  nmap('<m-l>', go_to_next_diagnostic)
   nmap('<leader>vl', vim.diagnostic.setloclist)
 
   -- Use an on_attach function to only map the following keys
