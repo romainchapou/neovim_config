@@ -1,6 +1,6 @@
 -- Small utility to bookmark files and switch to them, using fzf-lua
 
-local BOOKMARK_FILE = ".bookmarked_files.txt"
+local BOOKMARK_FILE = ".bookmarked_files.conf"
 
 
 local function bookmarkCurrentFile()
@@ -21,7 +21,7 @@ local function bookmarkCurrentFile()
 end
 
 
-local function promptBookmarkedFile()
+local function promptBookmarkedFile(delimit)
   -- skip if no bookmark file
   if vim.fn.filereadable(BOOKMARK_FILE) == 0 then
     print("No bookmark file")
@@ -39,9 +39,18 @@ local function promptBookmarkedFile()
   opts.actions = {['default'] = switchToSelectedFile}
   opts.previewer = "builtin"
 
+  opts.fzf_opts = { ['--tiebreak'] = "end,length" }
+
+  if delimit then
+    opts.fzf_opts['--delimiter'] = "/"
+    opts.fzf_opts['--with-nth'] = "-1"
+  end
+
   require("fzf-lua").fzf_exec(function(fzf_cb)
     for line in io.lines(BOOKMARK_FILE) do
-      fzf_cb(line)
+      if #line > 0 and line:sub(1, 1) ~= '#' then
+        fzf_cb(line)
+      end
     end
     fzf_cb() -- EOF
   end, opts)
@@ -51,4 +60,5 @@ end
 local nmap = require("rch.utils").nmap
 
 nmap("<leader><Space>", bookmarkCurrentFile)
-nmap("<C-Space>", promptBookmarkedFile)
+nmap("<C-Space>", function() promptBookmarkedFile(true) end)
+nmap("<C-S-Space>", function() promptBookmarkedFile(false) end)
