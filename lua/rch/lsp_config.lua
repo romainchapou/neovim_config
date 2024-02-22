@@ -22,6 +22,7 @@ if not os.getenv("NVIM_NO_LSP") then
 
   -- Mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
+  nmap('<leader>d', ":tag<cr>") -- as this gets overriden for some reason
   nmap('<leader>vd', vim.diagnostic.open_float)
   nmap('<m-h>', go_to_prev_diagnostic)
   nmap('<m-l>', go_to_next_diagnostic)

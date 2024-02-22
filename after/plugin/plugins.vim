@@ -96,8 +96,6 @@ nnoremap <leader>c :silent! wa<cr>:ConfitureDispatch configure<cr>
 nnoremap <leader>b :silent! wa<cr>:Confiture build<cr>
 nnoremap <leader><cr> :silent! wa<cr>:Confiture build_and_run<cr>
 
-nnoremap <C-C> :AbortDispatch<cr>
-
 " --- gtest_confiture ---
 nnoremap <leader>t :GtestConfitureSetTest<cr>
 nnoremap <leader>T :GtestConfitureSetClass<cr>

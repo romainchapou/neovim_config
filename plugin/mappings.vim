@@ -53,6 +53,8 @@ nnoremap <Leader>_ a<++><Esc>
 
 nnoremap <leader>q :q<cr>
 
+nnoremap <C-C> :ccl<CR>
+
 " :w!! to save with sudo
 cabbrev w!! w !sudo tee >/dev/null "%"
 
