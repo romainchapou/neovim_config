@@ -22,10 +22,10 @@ if not os.getenv("NVIM_NO_LSP") then
 
   -- Mappings.
   -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-  nmap('<leader>vd', vim.diagnostic.open_float)
+  nmap('<leader>zd', vim.diagnostic.open_float)
   nmap('<m-h>', go_to_prev_diagnostic)
   nmap('<m-l>', go_to_next_diagnostic)
-  nmap('<leader>vl', vim.diagnostic.setloclist)
+  nmap('<leader>zl', vim.diagnostic.setloclist)
 
   -- Use an on_attach function to only map the following keys
   -- after the language server attaches to the current buffer
@@ -108,4 +108,4 @@ for type, icon in pairs(signs) do
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
-nmap("<leader>r", ":LspRestart<cr>")
+nmap("<leader>R", ":LspRestart<cr>")

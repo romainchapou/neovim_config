@@ -22,8 +22,9 @@ nnoremap <silent> <leader>E :e %:h<cr>
 autocmd FileType fern nnoremap <buffer> <leader>c <Plug>(fern-action-cd:root)
 
 " Remap to quickly use vimgrep
-nnoremap <leader>gw :vimgrep // **/*<s-left><left><left>
+nnoremap <leader>F :vimgrep // **/*<s-left><left><left>
 nnoremap <leader>gg *:vimgrep "<c-r><c-/>" **/*<CR>
+nnoremap <leader>w :wa<CR>
 
 " change a word, and then, to change the next same word again,
 " you can use the dot command
@@ -39,6 +40,9 @@ nnoremap <Leader>C :set cursorline!<cr>
 nnoremap ù .
 nnoremap à @q
 nnoremap Y y$
+
+nnoremap <leader>v <c-w>v
+nnoremap <leader>o <c-w>o
 
 nnoremap dgt :tabclose<cr>
 
