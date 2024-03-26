@@ -50,13 +50,13 @@ let g:gitgutter_eager = 0
 
 " --- fugitive --- "
 nnoremap <leader>s :vert G<cr>
-nnoremap <leader>gs :vert G<cr>
+" nnoremap <leader>gs :vert G<cr>
 nnoremap <leader>gS :G<cr>
 nnoremap g<space> :Git<space>
 
 " --- fzf --- "
 nnoremap - :FzfLua tags<cr>
-nnoremap è :FzfLua files<cr>
+nnoremap è :FzfLua git_files<cr>
 nnoremap & :FzfLua buffers<cr>
 nnoremap é :FzfLua oldfiles<cr>
 nnoremap _ :FzfLua btags<cr>
@@ -97,8 +97,6 @@ nnoremap <leader>c :silent! wa<cr>:ConfitureDispatch configure<cr>
 nnoremap <leader>b :silent! wa<cr>:Confiture build<cr>
 nnoremap <leader><cr> :silent! wa<cr>:Confiture build_and_run<cr>
 nnoremap <leader>r :silent! wa<cr>:Confiture build_and_run<cr>
-
-nnoremap <C-C> :AbortDispatch<cr>
 
 " --- gtest_confiture ---
 nnoremap <leader>t :GtestConfitureSetTest<cr>

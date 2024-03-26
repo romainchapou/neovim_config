@@ -57,6 +57,10 @@ nnoremap <Leader>_ a<++><Esc>
 
 nnoremap <leader>q :q<cr>
 
+nnoremap <C-C> :ccl<CR>
+
+nnoremap <C-BS> g;
+
 " :w!! to save with sudo
 cabbrev w!! w !sudo tee >/dev/null "%"
 
@@ -117,7 +121,7 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! ToggleTextWidth()
-  let &textwidth = &textwidth ==# 0 ? 120 : 0
+  let &textwidth = &textwidth ==# 0 ? 100 : 0
   echomsg 'textwidth now ' . &textwidth
 endfunction
 
