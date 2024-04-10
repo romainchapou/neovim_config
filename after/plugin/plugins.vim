@@ -1,5 +1,5 @@
 " --- MundoTree --- "
-nnoremap <leader>U :MundoToggle<cr>
+" nnoremap <leader>U :MundoToggle<cr>
 
 " --- CamelCaseMotion --- "
 omap v <Plug>CamelCaseMotion_iw
@@ -12,8 +12,7 @@ let g:qf_nowrap = 0
 nnoremap <F10> :TagbarToggle<cr>
 
 " --- Goyo --- "
-noremap <Leader>f :Goyo<CR>
-noremap <Leader>F :Goyo 100<CR>
+" noremap <Leader>F :Goyo<CR>
 " autocmd! User GoyoLeave SignifyEnableAll
 
 " : map (what was , before)
@@ -23,8 +22,9 @@ map , <Plug>SneakPrevious
 let g:gitgutter_map_keys = 0
 nnoremap H <Plug>(GitGutterPrevHunk)
 nnoremap L <Plug>(GitGutterNextHunk)
-nnoremap <leader>s :w\|GitGutterStageHunk<cr>
+nnoremap <leader>a :w\|GitGutterStageHunk<cr>
 nnoremap <leader>u <Plug>(GitGutterUndoHunk)
+xnoremap <leader>a :<,>GitGutterStageHunk<cr>
 xnoremap <leader>s :<,>GitGutterStageHunk<cr>
 xnoremap <leader>u :<,>GitGutterUndoHunk<cr>
 nnoremap <leader>gc :GitGutterQuickFix<cr>
@@ -49,13 +49,14 @@ let g:gitgutter_eager = 0
 " nmap H <plug>(signify-prev-hunk)
 
 " --- fugitive --- "
-nnoremap <leader>gs :vert G<cr>
+nnoremap <leader>s :vert G<cr>
+" nnoremap <leader>gs :vert G<cr>
 nnoremap <leader>gS :G<cr>
 nnoremap g<space> :Git<space>
 
 " --- fzf --- "
 nnoremap - :FzfLua tags<cr>
-nnoremap è :FzfLua files<cr>
+nnoremap è :FzfLua git_files<cr>
 nnoremap & :FzfLua buffers<cr>
 nnoremap é :FzfLua oldfiles<cr>
 nnoremap _ :FzfLua btags<cr>
@@ -72,7 +73,7 @@ let g:vimwiki_ext2syntax = {
       \ '.Rmd': 'markdown', '.rmd': 'markdown',
       \ '.md': 'markdown', '.markdown': 'markdown',
       \ '.mdown': 'markdown'}
-nnoremap <Leader>wn <Plug>VimwikiNextLink
+" nnoremap <Leader>wn <Plug>VimwikiNextLink
 
 " --- pear-tree --- "
 let g:pear_tree_repeatable_expand = 0
@@ -80,7 +81,7 @@ let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1
 let g:pear_tree_smart_backspace = 1
 " To disable pear-tree easely
-nnoremap <leader>P :PearTreeDisable<cr>
+" nnoremap <leader>P :PearTreeDisable<cr>
 
 " --- EasyAlign --- "
 nmap gA <Plug>(EasyAlign)
@@ -95,6 +96,7 @@ nnoremap <leader><tab> :e project.conf<cr>
 nnoremap <leader>c :silent! wa<cr>:ConfitureDispatch configure<cr>
 nnoremap <leader>b :silent! wa<cr>:Confiture build<cr>
 nnoremap <leader><cr> :silent! wa<cr>:Confiture build_and_run<cr>
+nnoremap <leader>r :silent! wa<cr>:Confiture build_and_run<cr>
 
 " --- gtest_confiture ---
 nnoremap <leader>t :GtestConfitureSetTest<cr>

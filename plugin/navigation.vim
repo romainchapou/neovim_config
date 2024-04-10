@@ -64,8 +64,6 @@ noremap <tab> <c-^>`"
 noremap <C-P> <C-I>
 noremap <m-s-l> :cn<cr>
 noremap <m-s-h> :cp<cr>
-noremap <leader>n :bn<cr>
-noremap <leader>p :bp<cr>
 
 " Spelling mistake navigation
 nnoremap z) ]s

@@ -59,7 +59,8 @@ end
 
 local nmap = require("rch.utils").nmap
 
-nmap("<leader><Space>", bookmarkCurrentFile)
-nmap("<leader><S-tab>", ":e " .. BOOKMARK_FILE .. "<CR>")
+nmap("<leader>B", bookmarkCurrentFile)
+nmap("<leader>f", function() promptBookmarkedFile(true) end)
+nmap("<leader><s-tab>", ":e " .. BOOKMARK_FILE .. "<CR>")
 nmap("<C-Space>", function() promptBookmarkedFile(true) end)
 nmap("<C-S-Space>", function() promptBookmarkedFile(false) end)

@@ -16,14 +16,19 @@ onoremap ar a]
 xnoremap ir i]
 xnoremap ar a]
 
+" search inside visual selection TODO test
+vnoremap <S-M-/> <Esc>/\%V
+
 " file explorer mappings
 nnoremap <silent> <leader>e :e .<cr>
 nnoremap <silent> <leader>E :e %:h<cr>
 autocmd FileType fern nnoremap <buffer> <leader>c <Plug>(fern-action-cd:root)
 
 " Remap to quickly use vimgrep
+nnoremap <leader>F :vimgrep // **/*<s-left><left><left>
 nnoremap <leader>gw :vimgrep // **/*<s-left><left><left>
 nnoremap <leader>gg *:vimgrep "<c-r><c-/>" **/*<CR>
+nnoremap <leader>w :wa<CR>
 
 " change a word, and then, to change the next same word again,
 " you can use the dot command
@@ -40,6 +45,9 @@ nnoremap ù .
 nnoremap à @q
 nnoremap Y y$
 
+nnoremap <leader>v <c-w>v
+nnoremap <leader>o <c-w>o
+
 nnoremap dgt :tabclose<cr>
 
 " Easy expension of the active file directory
@@ -54,6 +62,8 @@ nnoremap <Leader>_ a<++><Esc>
 nnoremap <leader>q :q<cr>
 
 nnoremap <C-C> :ccl<CR>
+
+nnoremap <C-BS> g;
 
 " :w!! to save with sudo
 cabbrev w!! w !sudo tee >/dev/null "%"
@@ -115,7 +125,7 @@ inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! ToggleTextWidth()
-  let &textwidth = &textwidth ==# 0 ? 120 : 0
+  let &textwidth = &textwidth ==# 0 ? 100 : 0
   echomsg 'textwidth now ' . &textwidth
 endfunction
 

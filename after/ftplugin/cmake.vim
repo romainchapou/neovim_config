@@ -1,2 +1,3 @@
-nnoremap <buffer> <leader>gw :vimgrep // **/{CMakeLists.txt,*.cmake}<c-left><left><left>
-nnoremap <buffer> <leader>gg *:vimgrep // **/{CMakeLists.txt,*.cmake}<cr>
+nnoremap <buffer> <leader>F :vimgrep // `fd -e cmake && fd CMakeLists.txt`<c-b><c-right><right><right>
+nnoremap <buffer> <leader>gw :vimgrep // `fd -e cmake && fd CMakeLists.txt`<c-b><c-right><right><right>
+nnoremap <buffer> <leader>gg *:vimgrep // `fd -e cmake && fd CMakeLists.txt`<CR>
