@@ -92,7 +92,6 @@ dap.configurations.cpp = {
     end,
     environment = {{name = "TEST_VAR", value = "test value"}},
     cwd = '${workspaceFolder}',
-    -- cwd = '/home/chapoullie/4DViews/Dev/Projects/build/bin/',
     setupCommands = {
       {
         description = 'enable pretty printing',

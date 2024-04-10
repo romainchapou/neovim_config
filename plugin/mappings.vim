@@ -16,6 +16,9 @@ onoremap ar a]
 xnoremap ir i]
 xnoremap ar a]
 
+" search inside visual selection TODO test
+vnoremap <S-M-/> <Esc>/\%V
+
 " file explorer mappings
 nnoremap <silent> <leader>e :e .<cr>
 nnoremap <silent> <leader>E :e %:h<cr>
@@ -23,6 +26,7 @@ autocmd FileType fern nnoremap <buffer> <leader>c <Plug>(fern-action-cd:root)
 
 " Remap to quickly use vimgrep
 nnoremap <leader>F :vimgrep // **/*<s-left><left><left>
+nnoremap <leader>gw :vimgrep // **/*<s-left><left><left>
 nnoremap <leader>gg *:vimgrep "<c-r><c-/>" **/*<CR>
 nnoremap <leader>w :wa<CR>
 
