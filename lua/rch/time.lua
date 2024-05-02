@@ -6,6 +6,7 @@ function time.get_date(date)
 
   local t = tonumber(os.date("%s"))
   local nb_days_diff = 0
+  local number_date = tonumber(date)
 
   if date == nil or date == "" or date == "today" then
     nb_days_diff = 0
@@ -13,6 +14,8 @@ function time.get_date(date)
     nb_days_diff = 1
   elseif date == "next_week" then
     nb_days_diff = 7
+  elseif number_date ~= nil then
+    nb_days_diff = number_date
   else
     return "?"
   end
