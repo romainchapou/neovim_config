@@ -1,5 +1,13 @@
 -- Colorschemes and related plugins.
 
+-- some color shotcuts for the github light theme
+local light_grey = "#eff1f5"
+local blue = "#0366d6"
+local white = "#ffffff"
+local brown = "#d15705"
+local red = "#cb2431"
+local green = "#28a745"
+
 return {
   -- solarized
   {
@@ -17,7 +25,7 @@ return {
     dependencies = "itchyny/lightline.vim"
   },
 
-  -- github
+  -- github nvim theme
   -- NOTE: need to run :GithubThemeCompile when changing this
   {
     "projekt0n/github-nvim-theme",
@@ -36,8 +44,13 @@ return {
 
         groups = {
           github_light = {
-            StatusLine = { bg = "#eff1f5", fg = "black" },
-            StatusLineNC = { bg = "#eff1f5", fg = "grey" },
+            StatusLine = { bg = light_grey, fg = "black" },
+            StatusLineNC = { bg = light_grey, fg = "grey" },
+            Folded = { bg = white, fg = "grey" },
+            DiffText = { bg = light_grey, fg = blue },
+            diffAdded = { bg = light_grey, fg = green },
+            diffChanged = { bg = light_grey, fg = "#000000" },
+            diffRemoved = { bg = light_grey, fg = red },
           }
         },
 

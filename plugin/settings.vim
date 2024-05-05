@@ -16,6 +16,7 @@ set hlsearch incsearch
 
 " Better diffs
 set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+set diffopt+=linematch:50
 
 " Case insensible completion
 set infercase
