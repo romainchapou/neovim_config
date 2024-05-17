@@ -15,7 +15,7 @@ set clipboard=unnamed,unnamedplus
 set hlsearch incsearch
 
 " Better diffs
-set diffopt=filler,internal,algorithm:histogram,indent-heuristic
+set diffopt=filler,internal,algorithm:histogram,indent-heuristic,iwhite
 set diffopt+=linematch:50
 
 " Case insensible completion
