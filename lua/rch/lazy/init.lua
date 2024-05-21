@@ -57,6 +57,31 @@ return {
     end
   },
 
+  -- { 'echasnovski/mini.completion', version = false, opts = {} },
+
+  {
+    'https://github.com/stevearc/oil.nvim',
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("oil").setup {
+        columns = { "icon" },
+        keymaps = {
+          ["<C-h>"] = false,
+          ["<C-l>"] = false,
+          ["<M-h>"] = "actions.select_split",
+          ["<M-l>"] = "actions.refresh",
+          ["<backspace>"] = "actions.parent",
+          ["<M-k>"] = "actions.select",
+          ["<M-j>"] = "actions.parent",
+          ["<tab>"] = "<c-^>",
+        },
+      }
+
+      vim.keymap.set("n", "<M-j>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+      vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+    end
+  },
+
   -- not very much used zone
 
   "AndrewRadev/linediff.vim",
