@@ -6,5 +6,5 @@ return {
   { "junegunn/gv.vim", cmd = "GV" },
   -- "rhysd/git-messenger.vim",
   -- "mhinz/vim-signify",
-  "sindrets/diffview.nvim",
+  { "sindrets/diffview.nvim", event = "VeryLazy" },
 }

@@ -89,41 +89,6 @@ noremap <F7> :setlocal spell spelllang=en<CR>
 noremap <F8> :setlocal spell spelllang=fr<CR>
 noremap <F9> :setlocal nospell<CR>
 
-" Different completion sources from tab depending of the context
-
-" TODO when no match found, this has a weird behaviour
-function! Smart_TabComplete()
-  let line = getline('.')                         " current line
-  let char_before_cursor = line[col('.')-2]
-
-  if (col('.') <= 1 || char_before_cursor == " " || char_before_cursor == '\t')
-    return "\<tab>"
-  else
-    if (pumvisible() != 0)
-      return "\<C-N>"                             " next match
-    else
-      " from the start of the current line to one character right of the cursor
-      let substr = strpart(line, -1, col('.')+1)
-      let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-
-      let has_slash = match(substr, '\/') != -1       " position of slash, if any
-
-      " Some hacky behaviour for c/cpp to let the lsp handle
-      " completion for include paths
-      if (has_slash && line[0] != '#')
-        return "\<C-X>\<C-F>"                       " file matching
-      elseif (&omnifunc != "")
-        return "\<C-X>\<C-O>"                       " plugin matching
-      else
-        return "\<C-P>"                             " basic matching 
-      endif
-    endif
-  endif
-endfunction
-
-inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 function! ToggleTextWidth()
   let &textwidth = &textwidth ==# 0 ? 100 : 0
   echomsg 'textwidth now ' . &textwidth
