@@ -12,7 +12,7 @@ return {
       'hrsh7th/vim-vsnip',
     },
 
-    event = "VeryLazy",
+    event = "InsertEnter",
 
     config = function()
       local cmp = require("cmp")
