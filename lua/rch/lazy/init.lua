@@ -37,6 +37,7 @@ return {
   {
     "karb94/neoscroll.nvim", opts = {
       easing_function = "sine",
+      hide_cursor = false,
       mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'},
     }
   },

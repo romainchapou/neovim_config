@@ -9,6 +9,7 @@ return {
     config = function()
       require("oil").setup {
         columns = { "icon" },
+        skip_confirm_for_simple_edits = true,
         keymaps = {
           ["<C-h>"] = false,
           ["<C-l>"] = false,
