@@ -26,7 +26,7 @@ return {
   {
     "numToStr/Comment.nvim",
     opts = {},
-    keys = { "gc", {"gc", mode = "x"} },
+    event = "VeryLazy",
   },
   { "bronson/vim-visual-star-search", keys = {{"*", mode = "x"}}},
 
