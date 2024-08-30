@@ -24,6 +24,7 @@ return {
 
       vim.keymap.set("n", "<M-j>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
       vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+      vim.keymap.set("n", "<M-k>", "gf", { desc = "Open file under cursor" })
     end
   },
 }

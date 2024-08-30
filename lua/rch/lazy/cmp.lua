@@ -31,6 +31,7 @@ return {
           disallow_partial_matching = true,
           disallow_partial_fuzzy_matching = true,
           disallow_prefix_unmatching = true,
+          disallow_symbol_nonprefix_matching = true,
         },
 
         -- don't always show the completion pop up in insert mode
