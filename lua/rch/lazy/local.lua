@@ -23,6 +23,7 @@ end
 return {
   add_plugin_path("confiture.nvim", {
     cmd = { "Confiture", "ConfitureTerm", "ConfitureDispatch" },
+    event = "BufRead project.conf",
     dependencies = "tpope/vim-dispatch",
   }),
 

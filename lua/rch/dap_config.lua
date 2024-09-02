@@ -45,6 +45,7 @@ local function run_shell_command(cmd)
 end
 
 -- See https://github.com/mfussenegger/nvim-dap()/wiki/C-C---Rust-(gdb-via--vscode-cpptools)
+-- needed files to be downloaded from https://github.com/microsoft/vscode-cpptools/releases
 dap.adapters.cppdbg = {
   id = 'cppdbg',
   type = 'executable',
@@ -109,13 +110,7 @@ nmap('<backspace><cr>', function()
 
   require("confiture").set_variable("build_type", "Debug")
 
-  local build_success = require("confiture").build_and_return_success()
-
-  if not build_success then
-    print("build failed, not debbuging")
-    return
-  end
-
-  vim.api.nvim_feedkeys("<cr>", 'n', false)
-  require('dap').continue()
+  require("confiture").async_build_and_exec_on_success(function()
+    require('dap').continue()
+  end)
 end)
