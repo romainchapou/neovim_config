@@ -51,7 +51,6 @@ return {
             diffAdded = { bg = light_grey, fg = green },
             diffChanged = { bg = light_grey, fg = "#000000" },
             diffRemoved = { bg = light_grey, fg = red },
-            FzfLuaBackdrop = { bg = white, fg = "black" },
             FzfLuaHeaderBind = { bg = white, fg = green },
           }
         },

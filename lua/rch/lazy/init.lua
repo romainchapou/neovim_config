@@ -3,7 +3,10 @@
 return {
   {
     "ibhagwan/fzf-lua",
-    dependencies = {{ "junegunn/fzf", build = "./install --all" }}
+    dependencies = {{ "junegunn/fzf", build = "./install --all" }},
+    opts = {
+      winopts = { backdrop = 100 }
+    }
   },
 
   -- vanilla style plugins
