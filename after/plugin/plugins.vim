@@ -56,7 +56,7 @@ nnoremap g<space> :Git<space>
 
 " --- fzf --- "
 nnoremap - :FzfLua tags<cr>
-nnoremap è :FzfLua git_files<cr>
+nnoremap è :FzfLua files<cr>
 nnoremap & :FzfLua buffers<cr>
 nnoremap é :FzfLua oldfiles<cr>
 nnoremap _ :FzfLua btags<cr>
