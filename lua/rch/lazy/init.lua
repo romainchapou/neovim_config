@@ -26,7 +26,8 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = {{ "junegunn/fzf", build = "./install --all" }},
     opts = {
-      winopts = { backdrop = 100 }
+      winopts = { backdrop = 100 },
+      previewers = { builtin = { treesitter = { enable = false }}}
     }
   },
 
