@@ -1,5 +1,26 @@
 -- misc plugins with short configurations
 
+-- TODO voir
+-- https://github.com/kwkarlwang/bufresize.nvim
+-- https://github.com/sindrets/winshift.nvim
+-- https://github.com/yorickpeterse/nvim-pqf
+-- https://github.com/lewis6991/gitsigns.nvim
+-- https://github.com/ruifm/gitlinker.nvim
+-- https://github.com/folke/trouble.nvim
+-- https://github.com/folke/zen-mode.nvim
+-- https://github.com/folke/twilight.nvim
+--
+-- checkd:
+-- https://github.com/lukas-reineke/indent-blankline.nvim
+--
+--
+--
+--
+--
+--
+--
+--
+-- ok: tsjtoggle
 return {
   {
     "ibhagwan/fzf-lua",
@@ -15,6 +36,7 @@ return {
   "tpope/vim-eunuch",
   "bkad/CamelCaseMotion",
   { "tpope/vim-abolish", cmd = {"S", "Abolish"}, keys = "cr" },
+  -- TODO voir pour remplacer par https://github.com/famiu/bufdelete.nvim
   { "rbgrouleff/bclose.vim", cmd = "Bclose"},
   { "Yohannfra/Vim-Goto-Header", ft = {"cpp", "c"} },
   {
@@ -48,6 +70,7 @@ return {
   -- { 'echasnovski/mini.completion', version = false, opts = {} },
 
   -- not very much used zone
+  -- "lukas-reineke/indent-blankline.nvim",
 
   "AndrewRadev/linediff.vim",
   { "romainl/vim-qf", ft = "qf" },
