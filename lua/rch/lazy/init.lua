@@ -25,7 +25,7 @@ return {
   {
     "sgur/vim-textobj-parameter",
     dependencies = "kana/vim-textobj-user",
-    keys = { { "i,", mode = "o" }, { "a,", mode = "o" } },
+    keys = { { "i,", mode = {"o", "x"} }, { "a,", mode = {"o", "x"} } },
   },
   {
     "numToStr/Comment.nvim",
