@@ -24,7 +24,7 @@ end
 local function promptBookmarkedFile(delimit)
   -- skip if no bookmark file
   if vim.fn.filereadable(BOOKMARK_FILE) == 0 then
-    print("No bookmark file")
+    require("fzf-lua").files()
     return
   end
 
