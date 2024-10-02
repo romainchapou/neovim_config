@@ -95,3 +95,8 @@ function! ToggleTextWidth()
 endfunction
 
 nnoremap <leader>& :call ToggleTextWidth()<cr>
+
+nmap gs <c-w>o<c-w>vgd
+
+nnoremap <C-à> ]M
+nnoremap <C-ç> [m

@@ -70,6 +70,7 @@ function! CustomizeSolarized()
     hi TabLine guifg=#586e75 guibg=#073642 guisp=NONE gui=NONE cterm=NONE
     hi TabLineFill guifg=#586e75 guibg=#073642 guisp=NONE gui=NONE cterm=NONE
     hi myCommentMarks guifg=#586e75 gui=underline cterm=underline
+    hi Conceal guifg=#586e75 gui=NONE cterm=NONE
   elseif &background ==# 'light'
     hi WildMenu guifg=#657b83 guibg=#eee8d5 guisp=NONE gui=reverse cterm=reverse
     hi EndOfBuffer guifg=#93a1a1 guibg=NONE guisp=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
@@ -83,6 +84,7 @@ function! CustomizeSolarized()
     hi TabLine guifg=#93a1a1 guibg=#eee8d5 guisp=NONE gui=NONE cterm=NONE
     hi TabLineFill guifg=#93a1a1 guibg=#eee8d5 guisp=NONE gui=NONE cterm=NONE
     hi myCommentMarks guifg=#93a1a1 gui=underline cterm=underline
+    hi IndentBlanklineChar guifg=#e7e5d6 gui=nocombine
   endif
 
   hi SignifySignAdd    guifg=#859900 guibg=NONE guisp=NONE gui=NONE cterm=NONE
