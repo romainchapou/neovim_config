@@ -74,6 +74,7 @@ let g:vimwiki_ext2syntax = {
       \ '.md': 'markdown', '.markdown': 'markdown',
       \ '.mdown': 'markdown'}
 " nnoremap <Leader>wn <Plug>VimwikiNextLink
+let g:vimwiki_key_mappings = { 'lists': 0, 'links': 0 }
 
 " --- pear-tree --- "
 let g:pear_tree_repeatable_expand = 0
