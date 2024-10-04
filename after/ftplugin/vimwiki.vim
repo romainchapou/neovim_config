@@ -8,5 +8,8 @@ setlocal iskeyword-=.
 nnoremap <buffer> <m-h> [s
 nnoremap <buffer> <m-l> ]s
 
-nmap <C-CR> <Plug>VimwikiToggleListItem
-vmap <C-CR> <Plug>VimwikiToggleListItem
+nnoremap <buffer> <C-CR> <Plug>VimwikiToggleListItem
+vnoremap <buffer> <C-CR> <Plug>VimwikiToggleListItem
+
+nnoremap <buffer> o <Plug>VimwikiListo
+nnoremap <buffer> O <Plug>VimwikiListO
