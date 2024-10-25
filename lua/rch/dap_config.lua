@@ -33,7 +33,12 @@ nmap("<backspace>q", dap.terminate)
 nmap("<backspace>l", dap.list_breakpoints)
 nmap("<backspace>Q", dap.clear_breakpoints)
 nmap("<backspace>t", function() dap_widgets.centered_float(dap_widgets.frames) end)
+nmap("<backspace>T", function() dap_widgets.sidebar(dap_widgets.frames).open() end)
 nmap("<backspace>v", function() dap_widgets.centered_float(dap_widgets.scopes) end)
+nmap("<backspace>V", function() dap_widgets.sidebar(dap_widgets.scopes).open() end)
+
+nmap("<S-M-K>", dap.down)
+nmap("<S-M-J>", dap.up)
 
 local function run_shell_command(cmd)
   local handle = io.popen(cmd)
@@ -44,16 +49,15 @@ local function run_shell_command(cmd)
   return string.gsub(result, "\n", "")
 end
 
--- See https://github.com/mfussenegger/nvim-dap()/wiki/C-C---Rust-(gdb-via--vscode-cpptools)
--- needed files to be downloaded from https://github.com/microsoft/vscode-cpptools/releases
-dap.adapters.cppdbg = {
-  id = 'cppdbg',
+-- note that this need a recent version of gdb that supports dap
+dap.adapters.gdb = {
+  id = 'gdb',
   type = 'executable',
-  command = os.getenv("HOME") .. '/Documents/projects/cpptools/extension/debugAdapters/bin/OpenDebugAD7',
+  command = 'gdb',
+  args = { '--quiet', '--interpreter=dap' }
 }
 
 -- TODO @Cleanup
-
 local function mysplit(inputstr, sep)
   if sep == nil then
     sep = "%s"
@@ -68,7 +72,7 @@ end
 dap.configurations.cpp = {
   {
     name = "Launch file",
-    type = "cppdbg",
+    type = "gdb",
     request = "launch",
     program = function()
       local exec_file = require("confiture").get_command("exec")
@@ -103,7 +107,6 @@ dap.configurations.cpp = {
     stopAtEntry = true,
   },
 }
-
 
 nmap('<backspace><cr>', function()
   vim.api.nvim_command("silent! wa")
