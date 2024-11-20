@@ -80,4 +80,11 @@ return {
   -- { "simnalamburt/vim-mundo", event = "VeryLazy" },
   -- "gyim/vim-boxdraw",
   -- "nvim-lua/plenary.nvim",
+
+  -- {
+  --   "brenoprata10/nvim-highlight-colors", opts = {
+  --     render = "virtual",
+  --     event = "VeryLazy",
+  --   }
+  -- },
 }

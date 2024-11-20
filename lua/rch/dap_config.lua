@@ -22,9 +22,6 @@ nmap("<backspace>Q", dap.clear_breakpoints)
 nmap("<backspace>E", function() dap.set_exception_breakpoints({"all"}) end)
 
 nmap("<backspace>h", dap_widgets.hover)
-nmap("<backspace>h", dap_widgets.hover)
-
-nmap("<backspace>ap", dap_widgets.preview)
 nmap("<backspace>ap", dap_widgets.preview)
 
 nmap("<backspace>C", dap.run_to_cursor)
