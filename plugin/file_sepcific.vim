@@ -5,6 +5,8 @@
 autocmd BufEnter *.pro,*.pri setlocal syntax=config
 autocmd BufEnter *.pro,*.pri setlocal commentstring=#\ %s
 
+autocmd BufEnter project.conf nmap <buffer> <CR> gcap
+
 autocmd BufEnter CMakeLists.txt nnoremap <buffer> gh :e %:h/CMakeDependencies.cmake<cr>
 autocmd BufEnter CMakeDependencies.cmake nnoremap <buffer> gh :e %:h/CMakeLists.txt<cr>
 

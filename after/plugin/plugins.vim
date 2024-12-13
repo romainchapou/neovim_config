@@ -52,6 +52,8 @@ let g:gitgutter_eager = 0
 nnoremap <leader>s :vert G<cr>
 " nnoremap <leader>gs :vert G<cr>
 nnoremap <leader>gS :G<cr>
+nnoremap <leader>S :0G<cr>
+nnoremap <leader>gb :G blame<cr>
 nnoremap g<space> :Git<space>
 
 " --- fzf --- "
