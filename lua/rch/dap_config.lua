@@ -55,6 +55,7 @@ local function mysplit(inputstr, sep)
   end
   local t={}
   for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+    str = string.gsub(str, '"', '')
     table.insert(t, str)
   end
   return t

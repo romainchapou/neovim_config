@@ -5,3 +5,5 @@ nnoremap <buffer> <leader>gg *:vimgrep "<c-r><c-/>" `fd -e cpp -e h`<CR>
 " useful abbreviations
 iab <buffer> :: /* */<c-o>2h
 iab <buffer> ;; std::cout << << std::endl;<c-o>13h
+
+setlocal textwidth=100
