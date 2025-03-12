@@ -55,6 +55,11 @@ return {
     event = "VeryLazy",
   },
   { "bronson/vim-visual-star-search", keys = {{"*", mode = "x"}}},
+  {
+    'BranimirE/fix-auto-scroll.nvim',
+    config = true,
+    event = 'VeryLazy'
+  },
 
   -- "modern" style plugins
 

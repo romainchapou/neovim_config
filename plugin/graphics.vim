@@ -128,4 +128,16 @@ endif
 
 " set window title as opened dir stem
 set title
-let &titlestring = getcwd() ==# getenv("HOME") ? "vi" : tolower(substitute(getcwd(), ".*/", "", "g"))
+
+if getcwd() ==# getenv("HOME")
+  let &titlestring = "vi"
+else
+  let this_dir = tolower(substitute(getcwd(), ".*/", "", "g"))
+
+  " 'src' usually doesn't much info so instead show the previous directory
+  if this_dir ==# "src"
+    let &titlestring = tolower(substitute(getcwd(), "/.*/\\([^/]*\\)/[^/]*$", "\\1", "g"))
+  else
+    let &titlestring = this_dir
+  endif
+endif
