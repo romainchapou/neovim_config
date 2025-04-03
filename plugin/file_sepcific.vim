@@ -10,6 +10,9 @@ autocmd BufEnter project.conf nmap <buffer> <CR> gcap
 autocmd BufEnter CMakeLists.txt nnoremap <buffer> gh :e %:h/CMakeDependencies.cmake<cr>
 autocmd BufEnter CMakeDependencies.cmake nnoremap <buffer> gh :e %:h/CMakeLists.txt<cr>
 
+autocmd BufEnter *.vert nnoremap <buffer> gh :e %:r.frag<cr>
+autocmd BufEnter *.frag nnoremap <buffer> gh :e %:r.vert<cr>
+
 hi link markdownError Normal
 
 " ANTLR files

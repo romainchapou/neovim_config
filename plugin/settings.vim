@@ -19,7 +19,7 @@ set diffopt=filler,internal,algorithm:histogram,indent-heuristic,iwhite
 set diffopt+=linematch:50
 
 " Case insensible completion
-set infercase
+" set infercase
 
 set ignorecase smartcase
 set hidden

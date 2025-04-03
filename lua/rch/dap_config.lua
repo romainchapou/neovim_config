@@ -106,6 +106,8 @@ nmap('<backspace><cr>', function()
   require("confiture").set_variable("build_type", "Debug")
 
   require("confiture").async_build_and_exec_on_success(function()
-    require('dap').continue()
+    -- Runs the last used configuration.
+    -- To select a configuration before running, instead use 'continue()'
+    require('dap').run_last()
   end)
 end)
