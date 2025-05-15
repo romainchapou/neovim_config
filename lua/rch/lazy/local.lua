@@ -5,12 +5,16 @@
 local function add_plugin_path(name, node, fallback_github)
   if fallback_github == nil then fallback_github = true end
 
-  local expected_local_path = os.getenv("HOME") .. "/Documents/projects/" .. name
+  local expected_local_path = ""
 
-  if vim.fn.isdirectory(expected_local_path) == 1 then
-    node.dir = expected_local_path
-  elseif fallback_github then
+  if os.getenv("HOME") ~= nil then
+    expected_local_path = os.getenv("HOME") .. "/Documents/projects/" .. name
+  end
+
+  if fallback_github then
     node[1] = "romainchapou/" .. name
+  elseif vim.fn.isdirectory(expected_local_path) == 1 then
+    node.dir = expected_local_path
   else
     -- for custom plugins with no public github repo, if not present
     -- locally then simply don't load

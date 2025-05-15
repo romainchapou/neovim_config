@@ -26,6 +26,10 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
 
+if exists("g:neovide")
+  set guifont=Cascadia\ Mono:h9
+endif
+
 " Status line config
 " Enable soft wrap
 set wrap linebreak
@@ -111,7 +115,7 @@ hi Normal guibg=NONE ctermbg=NONE
 let s:term_color=luaeval('require("rch.term_color").get_term_color()')
 
 " Load a different colorscheme depending of the term color defined in ~/.term_color.
-" The default is solarized light.
+" The default is github light.
 if s:term_color ==# 'nord'
   let &background = 'dark'
   colorscheme nord
@@ -123,7 +127,7 @@ elseif s:term_color ==# "github_dark"
   colorscheme github_dark
 else
   let &background = s:term_color ==# 'dark' ? 'dark' : 'light'
-  colorscheme solarized8_flat
+  colorscheme github_light
 endif
 
 " set window title as opened dir stem

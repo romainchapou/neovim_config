@@ -70,7 +70,8 @@ return {
       easing_function = "sine",
       hide_cursor = false,
       mappings = {'<C-u>', '<C-d>', 'zt', 'zz', 'zb'},
-    }
+    },
+    enabled = not vim.g.neovide
   },
 
   -- { 'echasnovski/mini.completion', version = false, opts = {} },

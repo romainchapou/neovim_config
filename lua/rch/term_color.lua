@@ -1,6 +1,11 @@
 local M = {}
 
 function M.get_term_color()
+  if os.getenv("HOME") == nil then
+    -- on windows probably, abort
+    return nil
+  end
+
   local term_color_file = os.getenv("HOME") .. "/.term_color"
 
   if vim.fn.filereadable(term_color_file) == 0 then
