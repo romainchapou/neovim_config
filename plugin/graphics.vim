@@ -26,10 +26,6 @@ if exists("+showtabline")
   set tabline=%!MyTabLine()
 endif
 
-if exists("g:neovide")
-  set guifont=Cascadia\ Mono:h9
-endif
-
 " Status line config
 " Enable soft wrap
 set wrap linebreak
