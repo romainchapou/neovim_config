@@ -60,6 +60,27 @@ if not os.getenv("NVIM_NO_LSP") then
     debounce_text_changes = 150,
   }
 
+  require'lspconfig'.pylsp.setup{
+    settings = {
+      pylsp = {
+        plugins = {
+          pycodestyle = {
+            ignore = {'W391'},
+            maxLineLength = 100
+          }
+        }
+      }
+    },
+
+    on_attach = on_attach,
+    flags = lsp_flags,
+  }
+
+  require'lspconfig'.glsl_analyzer.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+  }
+
   require'lspconfig'.lua_ls.setup {
     settings = {
       Lua = {

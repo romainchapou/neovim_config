@@ -3,7 +3,7 @@ local M = {}
 if not os.getenv("NVIM_NO_LSP") then
   M = {
     {
-      "neovim/nvim-lspconfig", ft = {"cpp", "c", "lua"}, config = function()
+      "neovim/nvim-lspconfig", ft = {"cpp", "c", "lua", "python"}, config = function()
         require("rch.lsp_config")
       end
     },

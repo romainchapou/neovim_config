@@ -88,7 +88,16 @@ dap.configurations.cpp = {
       end
     end,
     environment = {{name = "TEST_VAR", value = "test value"}},
-    cwd = '${workspaceFolder}',
+    cwd = function()
+      local exec_dir = require("confiture").get_command("exec_dir")
+
+      if exec_dir ~= nil then
+        -- TODO see if really needed
+        return run_shell_command('readlink -f ' .. exec_dir)
+      else
+        return '${workspaceFolder}'
+      end
+    end,
     setupCommands = {
       {
         description = 'enable pretty printing',
