@@ -17,7 +17,20 @@ local function go_to_next_diagnostic()
 end
 
 if not os.getenv("NVIM_NO_LSP") then
-  vim.diagnostic.config({ update_in_insert = false, virtual_text = false })
+  vim.diagnostic.config({
+    update_in_insert = false,
+    virtual_text = false,
+
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = '',
+        [vim.diagnostic.severity.WARN] = '⚡',
+        [vim.diagnostic.severity.HINT] = '',
+        [vim.diagnostic.severity.INFO] = '',
+      },
+    },
+  })
+
   -- require'toggle_lsp_diagnostics'.init({ update_in_insert = false, virtual_text = false })
 
   -- Mappings.
@@ -121,12 +134,6 @@ if not os.getenv("NVIM_NO_LSP") then
         flags = lsp_flags,
     }
   end
-end
-
-local signs = { Error = " ", Warn = "⚡", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
 
 nmap("<leader>R", ":LspRestart<cr>")
