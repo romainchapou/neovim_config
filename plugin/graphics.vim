@@ -64,7 +64,7 @@ augroup MyColors
   autocmd ColorScheme github_* call CustomizeGithub()
 augroup END
 
-if (getenv("KITTY_WINDOW_ID") isnot v:null) || exists('g:neovide')
+if (getenv("KITTY_WINDOW_ID") isnot v:null) || exists('g:neovide') || exists('g:started_by_firenvim')
   set termguicolors
   colorscheme github_light
 else
