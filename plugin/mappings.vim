@@ -87,3 +87,9 @@ nmap gs <c-w>o<c-w>vgd
 
 nnoremap <C-à> ]M
 nnoremap <C-ç> [m
+
+" wow mouse support
+nnoremap <X1Mouse> <c-o>
+nnoremap <X2Mouse> <c-i>
+nmap <MiddleMouse> <LeftMouse>gd
+nmap <C-LeftMouse> <LeftMouse>gd
