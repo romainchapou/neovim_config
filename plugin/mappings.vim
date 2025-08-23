@@ -68,6 +68,9 @@ nnoremap <C-BS> g;
 inoremap <C-BS> <C-W>
 tnoremap <C-BS> <C-W>
 
+nnoremap <M-B> g;
+nnoremap <M-N> g,
+
 " :w!! to save with sudo
 cabbrev w!! w !sudo tee >/dev/null "%"
 
