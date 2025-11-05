@@ -4,7 +4,7 @@
 local light_grey = "#eff1f5"
 local blue = "#0366d6"
 local white = "#ffffff"
-local brown = "#d15705"
+-- local brown = "#d15705"
 local red = "#cb2431"
 local green = "#28a745"
 
