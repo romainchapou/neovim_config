@@ -36,3 +36,5 @@ autocmd BufReadPost *
 
 " This is pretty low and might be problematic
 set updatetime=300
+
+set exrc

@@ -54,8 +54,8 @@ nnoremap dgt :tabclose<cr>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
 " <++> type anchors
-lnoremap <Leader>ç <Esc>/\V<++><Esc>"_c4l
-lnoremap <Leader>_ <++>
+inoremap <Leader>ç <Esc>/\V<++><Esc>"_c4l
+inoremap <Leader>_ <++>
 nnoremap <Leader>ç <Esc>/\V<++><Esc>"_c4l
 nnoremap <Leader>_ a<++><Esc>
 
@@ -96,3 +96,5 @@ nnoremap <X1Mouse> <c-o>
 nnoremap <X2Mouse> <c-i>
 nmap <MiddleMouse> <LeftMouse>gd
 nmap <C-LeftMouse> <LeftMouse>gd
+nmap <S-ScrollWheelUp> 6zl
+nmap <S-ScrollWheelDown> 6zh

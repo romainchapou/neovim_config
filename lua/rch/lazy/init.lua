@@ -27,7 +27,7 @@ return {
     dependencies = {{ "junegunn/fzf", build = "./install --all" }},
     opts = {
       winopts = { backdrop = 100 },
-      previewers = { builtin = { treesitter = { enable = false }}}
+      previewers = { builtin = { treesitter = false }}
     }
   },
 
