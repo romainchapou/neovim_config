@@ -1,5 +1,27 @@
 if os.getenv("NVIM_NO_LSP") then return end
 
+-- function copied from nvim-lspconfig
+-- should only work for clangd
+local function clangd_switch_source_header(bufnr, client)
+  local method_name = 'textDocument/switchSourceHeader'
+
+  if not client or not client:supports_method(method_name) then
+    return vim.notify(('method %s is not supported by any servers active on the current buffer'):format(method_name))
+  end
+  local params = vim.lsp.util.make_text_document_params(bufnr)
+
+  client:request(method_name, params, function(err, result)
+    if err then
+      error(tostring(err))
+    end
+    if not result then
+      vim.notify('corresponding file cannot be determined')
+      return
+    end
+    vim.cmd.edit(vim.uri_to_fname(result))
+  end, bufnr)
+end
+
 local nmap = require("rch.utils").nmap
 
 local function go_to_prev_diagnostic()
@@ -40,7 +62,7 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('on-lsp-attach', { clear = true }),
     callback = function(event)
-      local client = vim.lsp.get_client_by_id(event.data.client_id)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
 
       -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = event.buf })
@@ -69,7 +91,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
         if client.name == "clangd" then
           nmap('gh', function()
-            vim.api.nvim_command(":ClangdSwitchSourceHeader")
+            clangd_switch_source_header(event.buf, client)
           end, bufopts)
         end
       end
