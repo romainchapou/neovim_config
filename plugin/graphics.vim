@@ -56,6 +56,9 @@ lua require("rch.comment_marks").load()
 
 function! CustomizeGithub()
   hi myCommentMarks guifg=#6e7781 gui=underline cterm=underline
+  hi markdownTags guifg=#d15705 gui=NONE cterm=NONE
+  hi markdownStartTag guibg=#daf6e0 gui=NONE cterm=NONE
+  hi markdownCurrentTag guibg=#daf6e0 gui=NONE cterm=NONE
   hi Sneak guibg=#d15705 guifg=#ffffff guisp=NONE gui=NONE cterm=NONE
 endfunction
 

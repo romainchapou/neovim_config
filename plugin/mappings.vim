@@ -27,6 +27,8 @@ autocmd FileType fern nnoremap <buffer> <leader>c <Plug>(fern-action-cd:root)
 " Remap to quickly use vimgrep
 nnoremap <leader>F :vimgrep // **/*<s-left><left><left>
 nnoremap <leader>gw :vimgrep // **/*<s-left><left><left>
+nmap <leader>gW :vimgrep // %%**<s-left><left><left>
+nmap <leader>gG *:vimgrep "<c-r><c-/>" %%**<CR>
 nnoremap <leader>gg *:vimgrep "<c-r><c-/>" **/*<CR>
 nnoremap <leader>w :wa<CR>
 
