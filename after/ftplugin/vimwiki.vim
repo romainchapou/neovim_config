@@ -11,5 +11,8 @@ nnoremap <buffer> <m-l> ]s
 nnoremap <buffer> <C-CR> <Plug>VimwikiToggleListItem
 vnoremap <buffer> <C-CR> <Plug>VimwikiToggleListItem
 
+nnoremap <buffer> <CR> <Plug>VimwikiFollowLink
+vnoremap <buffer> <CR> <Plug>VimwikiFollowLink
+
 nnoremap <buffer> o <Plug>VimwikiListo
 nnoremap <buffer> O <Plug>VimwikiListO
