@@ -82,7 +82,7 @@ return {
   "AndrewRadev/linediff.vim",
   { "romainl/vim-qf", ft = "qf" },
   { "junegunn/vim-easy-align", event = "VeryLazy" },
-  { "majutsushi/tagbar", cmd = "TagbarToggle" },
+  -- { "majutsushi/tagbar", cmd = "TagbarToggle" },
   -- { "simnalamburt/vim-mundo", event = "VeryLazy" },
   -- "gyim/vim-boxdraw",
   -- "nvim-lua/plenary.nvim",
