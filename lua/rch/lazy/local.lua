@@ -45,5 +45,5 @@ return {
     }
   }),
 
-  add_plugin_path("gtest_confiture.nvim", { ft = "cpp" }, false),
+  -- add_plugin_path("gtest_confiture.nvim", { ft = "cpp" }, false),
 }
