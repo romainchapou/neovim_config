@@ -155,6 +155,6 @@ vim.lsp.enable("lua_ls")
 vim.lsp.config.clangd = {
     cmd = { 'clangd' },
     root_markers = { 'compile_commands.json', '.git' },
-    filetypes = { 'c', 'cpp' },
+    filetypes = { 'c', 'cpp', 'cuda' },
 }
 vim.lsp.enable("clangd")

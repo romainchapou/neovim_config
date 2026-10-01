@@ -28,7 +28,7 @@ endif
 
 " Status line config
 " Enable soft wrap
-set wrap linebreak
+set wrap linebreak smoothscroll
 " set breakat
 set formatoptions+=n
 set breakindent
