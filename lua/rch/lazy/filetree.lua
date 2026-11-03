@@ -1,7 +1,11 @@
-local function select_callback()
+local function get_oil_current_file()
   local current_file = require("oil").get_cursor_entry().parsed_name
   local current_path = require("oil").get_current_dir()
-  local file = '"' .. current_path .. current_file .. '"'
+  return '"' .. current_path .. current_file .. '"'
+end
+
+local function select_callback()
+  local file = get_oil_current_file()
   local cmd = 'outfile=$(readlink -f ' .. file .. ' | xargs -I{} file --mime "{}") ; [ -d ' .. file .. ' ] || echo "$outfile" | grep -vq charset=binary || echo "$outfile" | grep -q "inode/x-empty;"'
 
   if os.execute(cmd) == 0 then
@@ -9,6 +13,10 @@ local function select_callback()
   else
     return require("oil.actions").open_external.callback()
   end
+end
+
+local function copy_path_callback()
+  vim.fn.setreg("+", get_oil_current_file())
 end
 
 return {
@@ -28,20 +36,17 @@ return {
           ["<C-p>"] = false,
           ["<C-h>"] = false,
           ["<C-l>"] = false,
+          ["gy"] = { callback = copy_path_callback },
           ["<M-h>"] = "actions.select_split", -- TODO
           ["<M-l>"] = "actions.refresh",
           ["gC"] = "actions.cd",
           ["<backspace>"] = "actions.parent",
-          ["<M-k>"] = { callback = select_callback},
-          ["<CR>"] = { callback = select_callback},
+          ["<M-k>"] = { callback = select_callback },
+          ["<CR>"] = { callback = select_callback },
           ["<M-j>"] = "actions.parent",
           ["<tab>"] = "<c-^>",
         },
       }
-
-      vim.keymap.set("n", "<M-j>", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-      vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-      vim.keymap.set("n", "<M-k>", "gf", { desc = "Open file under cursor" })
     end
   },
 }
