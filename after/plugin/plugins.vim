@@ -65,8 +65,10 @@ nnoremap _ :FzfLua btags<cr>
 nnoremap ² :FzfLua<cr>
 
 " --- GoToHeader ---
-let g:goto_header_associate_cpp_h = 1
-nnoremap gh :GotoHeaderSwitch<CR>
+"let g:goto_header_associate_cpp_h = 1
+"nnoremap gh :GotoHeaderSwitch<CR>
+
+nnoremap gh :Ouroboros<CR>
 
 " --- vimwiki --- "
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/', 'syntax': 'markdown'}]

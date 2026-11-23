@@ -39,7 +39,11 @@ return {
   { "tpope/vim-abolish", cmd = {"S", "Abolish"}, keys = "cr" },
   -- TODO voir pour remplacer par https://github.com/famiu/bufdelete.nvim
   { "rbgrouleff/bclose.vim", cmd = "Bclose"},
-  { "Yohannfra/Vim-Goto-Header", ft = {"cpp", "c"} },
+  -- { "Yohannfra/Vim-Goto-Header", ft = {"cpp", "c"} },
+  {
+    "jakemason/ouroboros.nvim",
+    dependencies = "nvim-lua/plenary.nvim"
+  },
   {
     "tpope/vim-surround",
     dependencies = "tpope/vim-repeat"
